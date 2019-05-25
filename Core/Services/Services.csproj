@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\**" />
+    <Compile Remove="Results\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Results\**" />
+    <None Remove="Interfaces\**" />
+    <None Remove="Results\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Helpers\EntityTypeConvertHelper.cs" />
+    <Compile Remove="Helpers\IncludeHelper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.8.1" />
+    <PackageReference Include="JsonDiffPatch.Net" Version="2.1.0" />
+    <PackageReference Include="MailKit" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="MimeKit" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Abstractions\Abstractions.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\Constants\Constants.csproj" />
+    <ProjectReference Include="..\Dtos\Dtos.csproj" />
+    <ProjectReference Include="..\Entities\Entities.csproj" />
+    <ProjectReference Include="..\EntityFrameworkCore\EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Globalization\Globalization.csproj" />
+    <ProjectReference Include="..\Utility\Utility.csproj" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="InternalInterfaces\Implementations\" />
+    <Folder Include="StoreProcedures\Inputs\" />
+    <Folder Include="StoreProcedures\Results\" />
+  </ItemGroup>
+
+
+
+
+</Project>

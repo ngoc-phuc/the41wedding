@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ERP\AP\**" />
+    <EmbeddedResource Remove="ERP\AP\**" />
+    <None Remove="ERP\AP\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ActiveableEntity.cs" />
+    <Compile Remove="AuditableEntity.cs" />
+    <Compile Remove="BysEntity.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ERP\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="EntityStatuses\**" />
+    <Compile Remove="EntityTypeNames\**" />
+    <Compile Remove="EntityTypes\**" />
+    <Compile Remove="ErpConsts\**" />
+    <Compile Remove="ObjectTypes\**" />
+    <Compile Remove="Results\**" />
+    <EmbeddedResource Remove="EntityStatuses\**" />
+    <EmbeddedResource Remove="EntityTypeNames\**" />
+    <EmbeddedResource Remove="EntityTypes\**" />
+    <EmbeddedResource Remove="ErpConsts\**" />
+    <EmbeddedResource Remove="ObjectTypes\**" />
+    <EmbeddedResource Remove="Results\**" />
+    <None Remove="EntityStatuses\**" />
+    <None Remove="EntityTypeNames\**" />
+    <None Remove="EntityTypes\**" />
+    <None Remove="ErpConsts\**" />
+    <None Remove="ObjectTypes\**" />
+    <None Remove="Results\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="11.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="TimeZoneConverter" Version="2.3.2" />
+  </ItemGroup>
+
+</Project>

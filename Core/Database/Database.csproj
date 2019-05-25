@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="02_InitialData\**" />
+    <Compile Remove="DbTanHoa\**" />
+    <Compile Remove="Models3\**" />
+    <EmbeddedResource Remove="02_InitialData\**" />
+    <EmbeddedResource Remove="DbTanHoa\**" />
+    <EmbeddedResource Remove="Models3\**" />
+    <None Remove="02_InitialData\**" />
+    <None Remove="DbTanHoa\**" />
+    <None Remove="Models3\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="01_Createtable\" />
+  </ItemGroup>
+
+</Project>
