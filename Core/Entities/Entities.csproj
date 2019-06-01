@@ -16,8 +16,4 @@
     <Compile Remove="BysEntity.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ERP\" />
-  </ItemGroup>
-
 </Project>
