@@ -1,13 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Abstractions.Services;
 using Wedding.Web.Models;
+using System.Threading.Tasks;
 
 namespace Wedding.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IWeddingStudioGroupService _studioGroupService;
+
+        public HomeController(IWeddingStudioGroupService studioGroupService)
         {
+            _studioGroupService = studioGroupService;
+        }
+        public async Task<IActionResult> Index()
+        {
+
             return View();
         }
 
