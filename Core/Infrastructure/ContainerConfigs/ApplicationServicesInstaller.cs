@@ -37,6 +37,7 @@ namespace Infrastructure.ContainerConfigs
 
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<IWeddingStudioGroupService, WeddingStudioGroupService>();
+            services.AddTransient<IWeddingStudioService, WeddingStudioService>();
         }
     }
 }

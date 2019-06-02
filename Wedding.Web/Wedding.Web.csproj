@@ -342,6 +342,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Abstractions\Abstractions.csproj" />
+    <ProjectReference Include="..\Core\Dtos\Dtos.csproj" />
     <ProjectReference Include="..\Core\Infrastructure\Infrastructure.csproj" />
     <ProjectReference Include="..\Core\Services\Services.csproj" />
   </ItemGroup>

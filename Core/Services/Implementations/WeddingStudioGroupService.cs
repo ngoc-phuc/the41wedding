@@ -1,31 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
+
 using Abstractions.Services;
+
 using Dtos.Ouput;
-using Dtos.Shared;
+
 using Entities.ERP;
+
 using EntityFrameworkCore.UnitOfWork;
+
 using Microsoft.EntityFrameworkCore;
+
 using Services.Implementations.Helper;
 
 namespace Services.Implementations
 {
     public class WeddingStudioGroupService : IWeddingStudioGroupService
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
         public WeddingStudioGroupService(IUnitOfWork unitOfWork)
         {
-            this.unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
         }
-        public async Task<WeddingStudioGroupDto[]> GetAllStudioGroupAsync()
+
+        public async Task<WeddingStudioGroupDto[]> GetWeddingStudioGroupAsync(int? stateProvinceId, int? districtId)
         {
-            return await unitOfWork.GetRepository<WeddingStudioGroup>()
-                .GetAll()
-                .Select(x => x.ToWeddingStudioGroupDto())
+            return await _unitOfWork.GetRepository<WeddingStudioGroup>()
+                .GetAllIncluding(x => x.WeddingStudios)
+                .Select(x => x.ToWeddingStudioGroupDto(stateProvinceId, districtId))
                 .ToArrayAsync();
         }
     }
