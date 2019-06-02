@@ -340,4 +340,10 @@
     <None Include="wwwroot\theme\js\venue-location.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Abstractions\Abstractions.csproj" />
+    <ProjectReference Include="..\Core\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\Core\Services\Services.csproj" />
+  </ItemGroup>
+
 </Project>

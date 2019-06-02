@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
+using Common.Dependency;
+
+using Infrastructure.ContainerConfigs;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +27,9 @@ namespace Wedding.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            ApplicationServicesInstaller.ConfigureApplicationServices(services, Configuration);
+            CoreServicesInstaller.ConfigureCoreServices(services, Configuration);
+            ServiceLocator.SetLocatorProvider(services.BuildServiceProvider);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
