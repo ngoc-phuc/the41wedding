@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -58,5 +59,12 @@ namespace Entities.ERP
         public int? FK_DistrictID { get; set; }
 
         public int? FK_CommuneID { get; set; }
+
+        [ForeignKey("FK_WeddingStudioGroupID")]
+        public virtual WeddingStudioGroup WeddingStudioGroup { get; set; }
+
+        [InverseProperty("WeddingStudio")] public virtual ICollection<WeddingStudioReview> WeddingStudioReviews { get; set; }
+
+        [InverseProperty("WeddingStudio")] public virtual ICollection<WeddingStudioProduct> WeddingStudioProducts { get; set; }
     }
 }

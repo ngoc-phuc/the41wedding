@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -30,5 +31,7 @@ namespace Entities.ERP
         public string WeddingStudioGroupName { get; set; }
 
         public string WeddingStudioGroupDesc { get; set; }
+
+        [InverseProperty("WeddingStudioGroup")] public virtual ICollection<WeddingStudio> WeddingStudios { get; set; }
     }
 }

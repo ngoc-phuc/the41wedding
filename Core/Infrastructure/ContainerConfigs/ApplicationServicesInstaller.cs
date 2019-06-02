@@ -36,6 +36,8 @@ namespace Infrastructure.ContainerConfigs
                         .GetUrlHelper(x.GetRequiredService<IActionContextAccessor>().ActionContext));
 
             services.AddTransient<IDataService, DataService>();
+            services.AddTransient<IWeddingStudioGroupService, WeddingStudioGroupService>();
+            services.AddTransient<IWeddingStudioService, WeddingStudioService>();
         }
     }
 }
