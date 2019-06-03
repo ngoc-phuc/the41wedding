@@ -41,5 +41,17 @@ namespace Services.Helpers
                     DisplayText = entity.CummuneName
                 };
         }
+
+        public static DictionaryItemDto ToDictionaryItemDto(this PriceUnit entity)
+        {
+            return entity == null
+                ? null
+                : new DictionaryItemDto
+                {
+                    Key = entity.Id.ToString(),
+                    Value = entity.PriceUnitNo,
+                    DisplayText = entity.PriceUnitName
+                };
+        }
     }
 }

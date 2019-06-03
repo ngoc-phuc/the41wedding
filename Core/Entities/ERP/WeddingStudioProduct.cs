@@ -40,5 +40,8 @@ namespace Entities.ERP
         [ForeignKey("FK_WeddingStudioID")]
         public virtual WeddingStudio WeddingStudio { get; set; }
 
+        [ForeignKey("FK_PriceUnitID")]
+        public virtual PriceUnit PriceUnit { get; set; }
+
     }
 }

@@ -6,6 +6,10 @@ namespace Abstractions.Services
 {
     public interface IWeddingStudioService
     {
-        Task<ShortWeddingStudioDto[]> GetWeddingStudioAsync(int weddingStudioGroupId, int? stateProvinceId, int? districtId);
+        // lâý all các studio thuộc group, cho lọc theo tỉnh/ huyện
+        Task<ShortWeddingStudioDto[]> GetAllWeddingStudioAsync(int weddingStudioGroupId, int? stateProvinceId, int? districtId);
+
+        //chi tiết studio, có dánh ách sản phẩm của studio
+        Task<WeddingStudioDto> GetWeddingStudioAsync(int weddingStudioId);
     }
 }

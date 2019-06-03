@@ -12,6 +12,7 @@ using EntityFrameworkCore.UnitOfWork;
 
 using Microsoft.EntityFrameworkCore;
 
+using Services.Helpers.PagedResult;
 using Services.Implementations.Helper;
 
 namespace Services.Implementations
@@ -24,15 +25,24 @@ namespace Services.Implementations
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<ShortWeddingStudioDto[]> GetWeddingStudioAsync(int weddingStudioGroupId, int? stateProvinceId, int? districtId)
+        public async Task<ShortWeddingStudioDto[]> GetAllWeddingStudioAsync(int weddingStudioGroupId, int? stateProvinceId, int? districtId)
         {
             return await _unitOfWork.GetRepository<WeddingStudio>()
                 .GetAllIncluding(x => x.WeddingStudioReviews, x => x.WeddingStudioProducts)
                 .Where(x => x.FK_WeddingStudioGroupID == weddingStudioGroupId)
                 .WhereIf(stateProvinceId.HasValue, x => x.FK_StateProvinceID == stateProvinceId)
                 .WhereIf(districtId.HasValue, x => x.FK_DistrictID == districtId)
-                .Select(x => x.ToWeddingStudioDto())
+                .Select(x => x.ToShortWeddingStudioDto())
                 .ToArrayAsync();
+        }
+
+        public async Task<WeddingStudioDto> GetWeddingStudioAsync(int weddingStudioId)
+        {
+            var weddingStudioFromDb = await _unitOfWork.GetRepository<WeddingStudio>()
+                .GetAllIncluding(x => x.WeddingStudioReviews, x => x.WeddingStudioProducts)
+                .FirstOrDefaultAsync(x => x.Id == weddingStudioId);
+
+            return weddingStudioFromDb.ToWeddingStudioDto();
         }
     }
 }
